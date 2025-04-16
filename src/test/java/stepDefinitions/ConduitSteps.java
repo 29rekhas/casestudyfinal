@@ -55,28 +55,28 @@ public class ConduitSteps {
     @Then("Article must be created")
     public void article_must_be_created() {
         Assert.assertTrue(articlePage.isArticleDisplayed("Sample Title"));
+        articlePage.clickHomeLink();
     }
 
-    /** @Given("User is on the Global Feed page")
+    @Given("User is on the Global Feed page")
     public void user_is_on_the_global_feed_page() {
-    	articlePage.clickHomeLink();
         articlePage.clickGlobalFeed();
         Assert.assertTrue("Global Feed is not displayed", articlePage.isGlobalFeedDisplayed());
     }
 
     @When("User selects the article titled {string}")
     public void user_selects_the_article_titled(String title) {
-        articlePage.selectArticle(title);      // Select the article by title
+        articlePage.selectArticle(title);   
     }
 
     @Then("The article detail page should be displayed for {string}")
     public void the_article_detail_page_should_be_displayed_for(String title) {
-        Assert.assertTrue("Article detail page is not displayed for: " + title, articlePage.isArticleDisplayed(title)); } **/
+        Assert.assertTrue("Article detail page is not displayed for: " + title, articlePage.isArticleDisplayed(title)); } 
    
 
     @When("User updates the article titled {string} with new content {string}")
     public void user_updates_the_article_titled_with_new_content(String title, String updatedContent) {
-        //articlePage.goToArticleFromHome(title);
+        articlePage.goToArticleFromHome(title);
         editPage.editArticle();
         newArticlePage.updateBody(updatedContent);
         editPage.clickUpdateArticleButton();

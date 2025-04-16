@@ -10,6 +10,11 @@ Scenario: Login into App
       | Sample Title 1 | Description | Article body | testTag |
     Then Article must be created
 
+ Scenario: View Article
+    Given User should be on Global Feed page
+    When User select an article "Sample Title"
+    Then Article detail page must be displayed
+
   Scenario: Update an Article
     Given Article detail page must be displayed
     When User update article detail
